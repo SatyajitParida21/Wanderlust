@@ -74,6 +74,7 @@ const sessionOptions = {
 
 
 
+
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -111,6 +112,10 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
 
 app.all(/.*/, (req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));
@@ -127,3 +132,4 @@ app.use((err, req, res, next) => {
 app.listen(8080, () => {
   console.log("server is listening to port 8080");
 });
+
