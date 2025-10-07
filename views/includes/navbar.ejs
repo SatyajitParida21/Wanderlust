@@ -1,89 +1,60 @@
+ <style>
 
-
-<style>
 .search-btn{
   background-color: #fe424d;
-  color:white;
+  color: #fff;
   border-radius: 25px;
   padding: 0 1rem 0 1rem;
 }
+
 .search-btn:hover{
   background-color: #fe424d;
-  color:white
+  color: #fff;
 }
-.search-btn i{
+
+.search-btn i {
   display: inline;
   margin-right: 0.5rem;
 }
-.search-input{
+
+.search-inp {
   border-radius: 25px;
-  padding:0.7rem 3rem 0.7rem 3rem;
-  font-size: 0.9rem;
+  padding: 0.5rem 3rem 0.5rem 3rem;
+  font-size: 1rem;
 }
+
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-        <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
 
-        <!-- Toggler for offcanvas (visible only on mobile) -->
-        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-              <span class="navbar-toggler-icon"></span>
-        </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
 
-        <!-- Standard Navbar Collapse for Desktop (visible only on larger screens) -->
-        <div class="collapse navbar-collapse d-none d-md-block" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                    <a class="nav-link" href="/listings">Explore</a>
-              </div>
-              <div class="navbar-nav ms-auto">
-                    <form class="d-flex" role="search">
-                          <input id="input"  class="form-control me-2 search-input" type="search" placeholder="Search destinations" >
-                          <button id="btn" class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-                    </form>
-              </div>
-              <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="/listings/new">Add Your Nearby Locations</a>
-                    <% if (!currUser) { %>
-                          <a class="nav-link" href="/signup"><b>Signup</b></a>
-                          <a class="nav-link" href="/login">
-                                <i class="fa-regular fa-circle-user"></i> <b>Login</b>
-                          </a>
-                          <% } else { %>
-                                <a class="nav-link" href="/logout">Logout</a>
-                                <% } %>
-              </div>
-        </div>
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" />
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>Search</button>
+        </form>
+      </div>
 
-        <!-- Offcanvas Navbar for Mobile (visible only on smaller screens) -->
-        <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="offcanvasNavbar"
-              aria-labelledby="offcanvasNavbarLabel">
-              <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                    <div class="navbar-nav">
-                          <a class="nav-link" href="/listings">Explore</a>
-                          <a class="nav-link" href="/listings/new">Airbnb your home</a>
-                    </div>
-                    <form class="d-flex my-3" role="search">
-                          <input class="form-control me-2 search-inp" type="search"
-                                placeholder="Search destination" />
-                          <button class="btn search-btn" type="submit">
-                                <i class="fa-solid fa-magnifying-glass"></i> Search
-                          </button>
-                    </form>
-                    <% if (!currUser) { %>
-                          <a class="nav-link" href="/signup" style="display: inline-block;margin-right: 20%;"><b>Signup</b></a>
-                          <a class="nav-link" style="display: inline-block;" href="/login">
-                                <i class="fa-regular fa-circle-user"></i> <b>Login</b>
-                          </a>
-                          <% } else { %>
-                                <a class="nav-link" href="/logout">Logout</a>
-                                <% } %>
-              </div>
-        </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <% if(!currUser) { %>
+        <a class="nav-link"  href="/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/login"><b>Log in</b></a>
+        <% } %>  <% if(currUser) { %> 
+        <a class="nav-link" href="/logout"><b>Log out</b></a>
+        <% } %>
+      </div>
+    </div>
   </div>
 </nav>
