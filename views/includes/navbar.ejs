@@ -44,7 +44,7 @@
               </div>
               <div class="navbar-nav ms-auto">
                     <a class="nav-link" href="/listings/new">Add Your Nearby Locations</a>
-                    <% if (!currUser) { %>
+                    <% if (typeof currUser === "undefined" || !currUser) { %>
                           <a class="nav-link" href="/signup"><b>Signup</b></a>
                           <a class="nav-link" href="/login">
                                 <i class="fa-regular fa-circle-user"></i> <b>Login</b>
@@ -74,7 +74,7 @@
                                 <i class="fa-solid fa-magnifying-glass"></i> Search
                           </button>
                     </form>
-                    <% if (!currUser) { %>
+                    <% if (typeof currUser === "undefined" || !currUser) { %>
                           <a class="nav-link" href="/signup" style="display: inline-block;margin-right: 20%;"><b>Signup</b></a>
                           <a class="nav-link" style="display: inline-block;" href="/login">
                                 <i class="fa-regular fa-circle-user"></i> <b>Login</b>
